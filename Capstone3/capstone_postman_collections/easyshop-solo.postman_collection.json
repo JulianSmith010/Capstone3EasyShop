@@ -14,7 +14,7 @@
 					"script": {
 						"exec": [
 							"pm.test(\"Registration should succeed\", function() {\r",
-							"    pm.response.to.have.status(200);\r",
+							"    pm.response.to.have.status(201);\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -515,6 +515,38 @@
 				}
 			},
 			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "userToken",
+			"value": "userToken",
+			"type": "string"
+		},
+		{
+			"key": "adminToken",
+			"value": "adminToken",
+			"type": "string"
+		},
+		{
+			"key": "newCategoryId",
+			"value": "3",
+			"type": "string"
+		},
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080",
+			"type": "string"
+		},
+		{
+			"key": "newUserName",
+			"value": "gary",
+			"type": "string"
+		},
+		{
+			"key": "newUserPassword",
+			"value": "thePass",
+			"type": "string"
 		}
 	]
 }

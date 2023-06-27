@@ -3,20 +3,28 @@ package org.yearup.models;
 public class Profile
 {
     private int userId;
-    private String firstName = "";
-    private String lastName = "";
-    private String phone = "";
-    private String email = "";
-    private String address = "";
-    private String city = "";
-    private String state = "";
-    private String zip = "";
+    private String firstName = "firstname";
+    private String lastName = "lastname";
+    private String phone = "phone";
+    private String email = "email";
+    private String address = "address";
+    private String city = "city";
+    private String state = "state";
+    private String zip = "zip";
 
     public Profile()
     {
     }
 
-    public Profile(int userId, String firstName, String lastName, String phone, String email, String address, String city, String state, String zip)
+    public Profile(int userId,
+                   String firstName,
+                   String lastName,
+                   String phone,
+                   String email,
+                   String address,
+                   String city,
+                   String state,
+                   String zip)
     {
         this.userId = userId;
         this.firstName = firstName;

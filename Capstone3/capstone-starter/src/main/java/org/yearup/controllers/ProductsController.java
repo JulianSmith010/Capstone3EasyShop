@@ -2,6 +2,7 @@ package org.yearup.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.method.P;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
@@ -24,8 +25,11 @@ public class ProductsController
         this.productDao = productDao;
     }
 
-    @GetMapping("")
-    @PreAuthorize("permitAll()")
+    @GetMapping("Products")
+//    @PreAuthorize("permitAll()")
+    public List<Product> getAllProducts(){
+        return productDao.getAll();
+    }
     public List<Product> search(@RequestParam(name="cat", required = false) Integer categoryId,
                                 @RequestParam(name="minPrice", required = false) BigDecimal minPrice,
                                 @RequestParam(name="maxPrice", required = false) BigDecimal maxPrice,
@@ -43,7 +47,7 @@ public class ProductsController
     }
 
     @GetMapping("{id}")
-    @PreAuthorize("permitAll()")
+//    @PreAuthorize("permitAll()")
     public Product getById(@PathVariable int id )
     {
         try
@@ -62,7 +66,7 @@ public class ProductsController
     }
 
     @PostMapping()
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
+//    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public Product addProduct(@RequestBody Product product)
     {
         try
@@ -76,7 +80,7 @@ public class ProductsController
     }
 
     @PutMapping("{id}")
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
+//    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public void updateProduct(@PathVariable int id, @RequestBody Product product)
     {
         try
@@ -90,7 +94,7 @@ public class ProductsController
     }
 
     @DeleteMapping("{id}")
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
+//    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public void deleteProduct(@PathVariable int id)
     {
         try

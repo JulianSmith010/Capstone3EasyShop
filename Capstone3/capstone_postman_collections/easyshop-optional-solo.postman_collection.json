@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "fecda8d8-b5c4-4c3d-814f-2f94dbf48019",
-		"name": "easyshop-optional",
+		"name": "easyshop-optional-solo",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "1479778"
 	},
@@ -526,6 +526,38 @@
 				}
 			},
 			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "userToken",
+			"value": "userToken",
+			"type": "string"
+		},
+		{
+			"key": "adminToken",
+			"value": "adminToken",
+			"type": "string"
+		},
+		{
+			"key": "newCategoryId",
+			"value": "3",
+			"type": "string"
+		},
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080",
+			"type": "string"
+		},
+		{
+			"key": "newUserName",
+			"value": "gary",
+			"type": "string"
+		},
+		{
+			"key": "newUserPassword",
+			"value": "thePass",
+			"type": "string"
 		}
 	]
 }
