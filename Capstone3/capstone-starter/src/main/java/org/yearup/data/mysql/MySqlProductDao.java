@@ -88,6 +88,16 @@ public class MySqlProductDao extends MySqlDaoBase implements ProductDao
         return products;
     }
 
+    @Override
+    public List<Product> listById(int productId) {
+        return null;
+    }
+
+    @Override
+    public List<Product> getByCategoryId(int categoryId) {
+        return null;
+    }
+
 
     @Override
     public Product getById(int productId)
@@ -206,6 +216,16 @@ public class MySqlProductDao extends MySqlDaoBase implements ProductDao
         {
             throw new RuntimeException(e);
         }
+    }
+
+    @Override
+    public List<Product> getProductsByCategoryId(int categoryId) {
+        return null;
+    }
+
+    @Override
+    public void getProductById(int id) {
+
     }
 
     protected static Product mapRow(ResultSet row) throws SQLException

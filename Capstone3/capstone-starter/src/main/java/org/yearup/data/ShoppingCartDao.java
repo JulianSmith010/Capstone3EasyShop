@@ -12,6 +12,12 @@ public interface ShoppingCartDao
 
     void updateProductInCart(int userId, int productId, int quantity);
 
+    void create(ShoppingCart shoppingCart);
+
+    void update(ShoppingCart shoppingCart);
+
+    void delete(int userId);
+
     void addProductToCart(int userId, int productId);
     // add additional method signatures here
 }

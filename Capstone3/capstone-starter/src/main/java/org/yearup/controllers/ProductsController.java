@@ -2,6 +2,7 @@ package org.yearup.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import org.yearup.models.Product;
@@ -43,11 +44,11 @@ public class ProductsController
 
     @GetMapping("{id}")
 //    @PreAuthorize("permitAll()")
-    public List<Product> getById(@PathVariable int id )
+    public Product getById(@PathVariable int id )
     {
         try
         {
-            var product = productDao.listById(id);
+            var product = productDao.getById(id);
 
             if(product == null)
                 throw new ResponseStatusException(HttpStatus.NOT_FOUND);
@@ -94,7 +95,7 @@ public class ProductsController
     {
         try
         {
-            var product = productDao.listById(id);
+            var product = productDao.getById(id);
 
             if(product == null)
                 throw new ResponseStatusException(HttpStatus.NOT_FOUND);
