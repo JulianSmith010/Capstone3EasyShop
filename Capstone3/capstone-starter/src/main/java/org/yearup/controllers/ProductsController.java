@@ -2,8 +2,6 @@ package org.yearup.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.security.access.method.P;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import org.yearup.models.Product;
@@ -25,16 +23,13 @@ public class ProductsController
         this.productDao = productDao;
     }
 
-    @GetMapping("Products")
+    @GetMapping("")
 //    @PreAuthorize("permitAll()")
-    public List<Product> getAllProducts(){
-        return productDao.getAll();
-    }
     public List<Product> search(@RequestParam(name="cat", required = false) Integer categoryId,
                                 @RequestParam(name="minPrice", required = false) BigDecimal minPrice,
                                 @RequestParam(name="maxPrice", required = false) BigDecimal maxPrice,
                                 @RequestParam(name="color", required = false) String color
-                                )
+    )
     {
         try
         {
@@ -48,11 +43,11 @@ public class ProductsController
 
     @GetMapping("{id}")
 //    @PreAuthorize("permitAll()")
-    public Product getById(@PathVariable int id )
+    public List<Product> getById(@PathVariable int id )
     {
         try
         {
-            var product = productDao.getById(id);
+            var product = productDao.listById(id);
 
             if(product == null)
                 throw new ResponseStatusException(HttpStatus.NOT_FOUND);
@@ -66,7 +61,7 @@ public class ProductsController
     }
 
     @PostMapping()
-//    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    //@PreAuthorize("hasRole('ROLE_ADMIN')")
     public Product addProduct(@RequestBody Product product)
     {
         try
@@ -99,7 +94,7 @@ public class ProductsController
     {
         try
         {
-            var product = productDao.getById(id);
+            var product = productDao.listById(id);
 
             if(product == null)
                 throw new ResponseStatusException(HttpStatus.NOT_FOUND);
