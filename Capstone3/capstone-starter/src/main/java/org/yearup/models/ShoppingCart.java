@@ -4,49 +4,14 @@ import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ShoppingCart {
-
-    private int userId;
-    private int productId;
-    private int quantity;
-
-    public ShoppingCart(int userId, int productId, int quantity, Map<Integer, ShoppingCartItem> items) {
-        this.userId = userId;
-        this.productId = productId;
-        this.quantity = quantity;
-        this.items = items;
-    }
-
-
-    public ShoppingCart(int userId, int productId, int quantity){
-
-    }
-
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
-
-    public int getProductId() {
-        return productId;
-    }
-
-    public void setProductId(int productId) {
-        this.productId = productId;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
+public class ShoppingCart
+{
     private Map<Integer, ShoppingCartItem> items = new HashMap<>();
+    private int userId;
+    private int cartId;
+
+    public ShoppingCart(int cartId, int userId) {
+    }
 
     public Map<Integer, ShoppingCartItem> getItems()
     {
@@ -83,13 +48,19 @@ public class ShoppingCart {
         return total;
     }
 
-    @Override
-    public String toString() {
-        return "ShoppingCart{" +
-                "userId=" + userId +
-                ", productId=" + productId +
-                ", quantity=" + quantity +
-                ", items=" + items +
-                '}';
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public int getCartId() {
+        return cartId;
+    }
+
+    public void setCartId(int cartId) {
+        this.cartId = cartId;
     }
 }

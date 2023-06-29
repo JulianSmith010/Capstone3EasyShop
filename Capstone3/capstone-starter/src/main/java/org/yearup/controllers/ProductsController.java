@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import org.yearup.models.Product;
 import org.yearup.data.ProductDao;
+
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -33,12 +34,13 @@ public class ProductsController
     {
         try
         {
-            System.out.println("Trigger");
+
             return productDao.search(categoryId, minPrice, maxPrice, color);
         }
         catch(Exception ex)
         {
-            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Oops... our bad.");
+
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Oops... yea that's our bad.");
         }
     }
 
@@ -62,7 +64,7 @@ public class ProductsController
     }
 
     @PostMapping()
-    //@PreAuthorize("hasRole('ROLE_ADMIN')")
+//    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public Product addProduct(@RequestBody Product product)
     {
         try

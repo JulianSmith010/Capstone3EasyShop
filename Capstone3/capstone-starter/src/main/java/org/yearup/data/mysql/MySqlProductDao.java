@@ -1,9 +1,10 @@
 package org.yearup.data.mysql;
 
 import org.springframework.stereotype.Component;
+import org.yearup.models.Category;
 import org.yearup.models.Product;
 import org.yearup.data.ProductDao;
-
+// import org.yearup.data.Mysql;
 import javax.sql.DataSource;
 import java.math.BigDecimal;
 import java.sql.*;
@@ -16,6 +17,21 @@ public class MySqlProductDao extends MySqlDaoBase implements ProductDao
     public MySqlProductDao(DataSource dataSource)
     {
         super(dataSource);
+    }
+
+    @Override
+    public Category add(Category category) {
+        return null;
+    }
+
+    @Override
+    public List<Product> listById(int productId) {
+        return null;
+    }
+
+    @Override
+    public void getProductById(int id) {
+
     }
 
     @Override
@@ -65,7 +81,7 @@ public class MySqlProductDao extends MySqlDaoBase implements ProductDao
         List<Product> products = new ArrayList<>();
 
         String sql = "SELECT * FROM products " +
-                    " WHERE category_id = ? ";
+                " WHERE category_id = ? ";
 
         try (Connection connection = getConnection())
         {
@@ -89,7 +105,7 @@ public class MySqlProductDao extends MySqlDaoBase implements ProductDao
     }
 
     @Override
-    public List<Product> listById(int productId) {
+    public Product add(Product product) {
         return null;
     }
 
@@ -162,7 +178,6 @@ public class MySqlProductDao extends MySqlDaoBase implements ProductDao
         }
         return null;
     }
-
     @Override
     public void update(int productId, Product product)
     {
@@ -221,11 +236,6 @@ public class MySqlProductDao extends MySqlDaoBase implements ProductDao
     @Override
     public List<Product> getProductsByCategoryId(int categoryId) {
         return null;
-    }
-
-    @Override
-    public void getProductById(int id) {
-
     }
 
     protected static Product mapRow(ResultSet row) throws SQLException

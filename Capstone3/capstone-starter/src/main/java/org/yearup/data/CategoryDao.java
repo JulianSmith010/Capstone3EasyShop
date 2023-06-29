@@ -1,16 +1,15 @@
 package org.yearup.data;
 
 import org.yearup.models.Category;
+import org.yearup.models.Product;
 
 import java.util.List;
 
-public interface CategoryDao
-{
+public interface CategoryDao {
     List<Category> getAllCategories();
-    Category getById(int categoryId);
+    Category getById(int id);
     Category create(Category category);
-    void update(int categoryId, Category category);
-    void delete(int categoryId);
-
-    Category add(Category category);
+    void update(int id, Category category);
+    void delete(int id);
+    List<Product> getProductsByCategoryId(int categoryId);
 }
